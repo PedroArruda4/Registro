@@ -1,0 +1,119 @@
+﻿
+
+<!DOCTYPE html PUBLIC "- //W3C//DTD HTML 4.01 Trasitional//EN">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name= "viewport" content="width-device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Cadastro de Usuários</title>
+
+        <link href="form.css" rel="stylesheet">
+        <script>
+            function ChecaUsuario()
+            {
+                try 
+                {
+                    obejtoAJAX= new XMLHttpRequest();
+                }
+                catch(e1)
+                {
+                    try
+                    {
+                        obejtoAJAX = new ActiveXObject ("Msxml2.XMLHTTP");
+                    }
+
+                    try{
+                        objetoAJAX= new ActiveXOBject("Microsoft.XMLHTTP");
+
+                    }
+                    catch(e3)
+                    {
+                        objetoAJAX = false 
+                    }
+                }
+            }
+
+            if(obejtoAJAX)
+            {
+                var objSpan = document.getElementById("aviso")
+                objSpan.innerHTML = "<img src= 'img/ajax-loader.gif'>"
+                var txtUsuario = document.getElementById("idUsuario").value
+                var enderecoURL = 'grava_usu.php?codigo='+escape(txtUsuario)
+                objetoAJAX.open("GET", enderecoURL, true)
+                objetoAJAX.onreadystatechange = function()
+                {
+                    if (objetoAJAX.readyState == 4)
+                    {
+                        if (objetoAJAX.status == 200)
+                        {
+                            var texto=objetoAJAX.responseText
+                            objSpan.innerHTML=texto
+                        }
+                        else{
+                            objSpan.innerHTML="Falha na localização do ID:" + objetoAJAX.statusText
+                        }
+                    }
+                }
+            }
+        </script>
+        </head>
+        <body>
+            
+            <div id="main-container">
+                <h1>Dados do Usuário</h1>
+                <form action="grava_usu.php" method="POST" id="formUsuario">
+            
+            
+            <div class="full-box spacing">
+                <label for="nome" class="obrigatorio"> Nome*:</label>
+                <input type="text" name="nome" id="nome" class="campos" placeholder="Digite seu nome"> <br>
+            </div>
+            
+            <div class="half-box spacing"> 
+                <label for="idUsuario" class="obrigatorio"> Indentifica&ccedil;&atilde;o*:</label>
+                <input type="text" name="idUsuario" id="idUsuario" class="campos" onblur="ChecaUsuario()">
+                <span id="aviso"></span><br>
+            </div>
+            
+            <div class="half-box">
+                <label for="cidade" class="obrigatorio"> Cidade*:</label>
+                <input type="text" name="cidade" id="cidade" class="campos" placeholder="Digite sua cidade"> <br>
+            </div>
+
+            <div class="half-box spacing">
+                <label for="uf"> Estado:</label>
+                <input type="text" name="uf" id="uf" class="campos" placeholder="Digite a sigla de seu estado" > <br>
+            </div>
+
+            <div class="half-box">
+                <label for="CEP"> CEP:</label>
+                <input type="text" name="cep" id="cep" class="campos" placeholder="Digite seu CEP"> <br>
+            </div>
+
+            <div class="half-box">
+                <label for="endereco" class="obrigatorio"> Endere&ccedil;o*:</label>
+                <input type="text" name="endereco" id="endereco" class="campos" placeholder="Digite seu endereço"> <br>
+            </div>
+                    
+            <div class="full-box spacing">
+                <label for="senha" class="obrigatorio"> Senha*:</label>
+                <input type="password" name="senha" id="senha" class="campos"  placeholder="Digite sua senha" > <br>
+            </div>
+            
+            <div class="full-box">
+                <input type="submit" name="submit" id="submit" value="Cadastrar"><br>
+            </div>
+            
+            <div class="full-box">
+            <h3>* Preechimento obrigat&oacute;rio!</h3>
+            </div>
+            </form>
+            </div>
+            <div class="end">
+            <footer>
+                <h3>Pedro Henrique Arruda <br> 3DSIEM</h3>
+            </footer>
+            </div>
+            </body>
+</html>

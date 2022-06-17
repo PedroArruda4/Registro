@@ -1,0 +1,131 @@
+/* geral */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    color: #323232, #FFF; 
+    border: none;
+}
+
+
+input, label {
+    display: block;
+    width: 100%;
+
+}
+ 
+input:focus, label:focus{
+    outline: none;
+}
+
+a {
+    color: #13678A; 
+}
+ 
+body {
+    padding-top: 7vh;
+    background-image: url("wallback.jpg");
+    background-size:cover;
+    background-position-y: -150px;
+
+}
+
+
+#main-container{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 0 1em rgba(255, 255, 255, 0.527);
+
+}
+
+#main-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .full-box {
+    flex: 1 1 100%;
+    position: relative;
+  }
+  
+  .half-box {
+    flex: 1 1 45%;
+    position: relative;
+  }
+  
+  .full-box h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1rem;
+      
+  }
+  .spacing {
+    margin-right: 2.5%;
+  }
+  
+  label {
+    font-weight: bold;
+    font-size: .8rem;
+  }
+  
+  input {
+    border-bottom: 2px solid #45C4B0;
+    padding: 10px;
+    font-size: .9rem;
+    margin-bottom: 40px;
+  }
+  
+  input:focus {
+    border-color: #012030;
+  }
+  
+  input[type="submit"] {
+    background-color: #034a6d;
+    color: #FFF;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #03608f;
+  }
+  
+  .template {
+    display: none;
+  }
+
+footer{
+    position: absolute;
+    bottom: 0;
+    left:  0;
+    right: 0; 
+    background-color: #02243a;
+    color: #FFF;
+    height: auto;
+    width: 100vw;
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 1rem;
+    padding-bottom: 2rem;
+    box-shadow: 0 0 1em #03426d;
+    
+}
+.end{
+    padding-top: 0;
+
+}
